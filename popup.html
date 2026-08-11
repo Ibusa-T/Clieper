@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian Clipper</title>
+  <style>
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background-color: #1e1e1e;
+      color: #dcddde;
+      box-sizing: border-box;
+    }
+    h2 {
+      font-size: 15px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #a855f7;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .field {
+      margin-bottom: 8px;
+    }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: #999;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 7px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background-color: #2b2b2b;
+      color: #fff;
+      font-size: 12px;
+      box-sizing: border-box;
+    }
+    input:focus {
+      outline: none;
+      border-color: #a855f7;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #7c3aed;
+      color: #fff;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #6d28d9;
+    }
+    button:disabled {
+      background-color: #4b5563;
+      cursor: not-allowed;
+    }
+    details {
+      margin-bottom: 12px;
+      background: #282828;
+      border-radius: 4px;
+      padding: 6px 10px;
+      border: 1px solid #333;
+    }
+    summary {
+      font-size: 12px;
+      cursor: pointer;
+      color: #bbb;
+      user-select: none;
+    }
+    #status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #34d399;
+      min-height: 18px;
+      word-break: break-all;
+      white-space: pre-wrap;
+    }
+    .error {
+      color: #f87171 !important;
+    }
+    .save-btn {
+      padding: 6px;
+      font-size: 11px;
+      background-color: #4b5563;
+      margin-top: 6px;
+    }
+    .save-btn:hover {
+      background-color: #374151;
+    }
+  </style>
+</head>
+<body>
+  <h2>🚀 Obsidian AI Clipper</h2>
+
+  <details id="configDetails">
+    <summary>⚙️ 設定 (API Key / Vault設定)</summary>
+    <div style="margin-top: 10px;">
+      <div class="field">
+        <label for="apiKey">OpenAI API Key</label>
+        <input type="password" id="apiKey" placeholder="sk-...">
+      </div>
+      <div class="field">
+        <label for="vault">Vault Name (保管庫名)</label>
+        <input type="text" id="vault" placeholder="MyVault">
+      </div>
+      <div class="field">
+        <label for="folder">Folder Path (例: Clippings)</label>
+        <input type="text" id="folder" placeholder="Clippings">
+      </div>
+      <button id="saveConfig" class="save-btn">設定を保存</button>
+    </div>
+  </details>
+
+  <button id="clipBtn">AI要約してObsidianへ保存</button>
+
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
