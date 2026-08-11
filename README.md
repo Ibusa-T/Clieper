@@ -11,7 +11,7 @@
 
 ## 2. システム構成・ディレクトリ構造 (Architecture)
 
-ビルドツール（Webpack/Vite）や外部フレームワーク（React等）を使わない、最小・爆速の純粋なバニラJS構成。
+*ビルドツール（Webpack/Vite）や外部フレームワーク（React等）を使わない、最小・爆速の純粋なバニラJS構成。*
 
 ```text
 obsidian-clipper/
@@ -26,7 +26,7 @@ obsidian-clipper/
 
 ## 🧩 STEP 2: Chromeへの読み込み（デベロッパーモード）
 
-自分で作った拡張機能をChromeに追加します。
+自分で作った拡張機能をChromeに追加します
 
 1. **Chromeを起動**し、アドレスバー（URL入力欄）に以下を入力して Enter を押します。
     
