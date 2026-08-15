@@ -9,7 +9,7 @@
     "storage"
   ],
   "host_permissions": [
-    "https://api.openai.com/*"
+    "https://openrouter.ai/*"
   ],
   "action": {
     "default_popup": "popup.html",
