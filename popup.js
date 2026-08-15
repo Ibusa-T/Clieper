@@ -115,14 +115,14 @@ ${summaryResult}
 
   //  API 通信ロジック
   async function callOpenAI(apiKey, title, text) {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
+        model: 'meta-llama/llama-3.3-70b-instruct',
         messages: [
           {
             role: 'system',
@@ -139,7 +139,7 @@ ${summaryResult}
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.error?.message || 'OpenAI APIリクエストに失敗しました。');
+      throw new Error(errorData.error?.message || 'APIリクエストに失敗しました。');
     }
 
     const data = await response.json();
