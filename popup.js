@@ -2,16 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiKeyInput = document.getElementById('apiKey');
   const vaultInput = document.getElementById('vault');
   const folderInput = document.getElementById('folder');
+  const folderDisplay = document.getElementById('folderDisplay');
   const saveConfigBtn = document.getElementById('saveConfig');
   const clipBtn = document.getElementById('clipBtn');
   const statusDiv = document.getElementById('status');
   const configDetails = document.getElementById('configDetails');
 
+  let selectedFolder = '';
+
   // 設定のロード
   chrome.storage.sync.get(['apiKey', 'vault', 'folder'], (items) => {
     if (items.apiKey) apiKeyInput.value = items.apiKey;
     if (items.vault) vaultInput.value = items.vault;
-    if (items.folder) folderInput.value = items.folder;
+    if (items.folder) {
+      selectedFolder = items.folder;
+      if (folderDisplay) folderDisplay.textContent = `現在の設定: ${selectedFolder}`;
+    }
 
     // 未設定の場合は自動的に設定画面を展開
     if (!items.apiKey || !items.vault) {
@@ -19,11 +25,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // フォルダ選択時の処理
+  if (folderInput) {
+    folderInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        const path = e.target.files[0].webkitRelativePath;
+        selectedFolder = path.split('/')[0];
+        if (folderDisplay) folderDisplay.textContent = `選択中: ${selectedFolder}`;
+      } else {
+        selectedFolder = '';
+        if (folderDisplay) folderDisplay.textContent = '';
+      }
+    });
+  }
+
   // 設定の保存
   saveConfigBtn.addEventListener('click', () => {
     const apiKey = apiKeyInput.value.trim();
     const vault = vaultInput.value.trim();
-    const folder = folderInput.value.trim();
+    const folder = selectedFolder;
 
     chrome.storage.sync.set({ apiKey, vault, folder }, () => {
       showStatus('設定を保存しました！', false);
@@ -34,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   clipBtn.addEventListener('click', async () => {
     const apiKey = apiKeyInput.value.trim();
     const vault = vaultInput.value.trim();
-    const folder = folderInput.value.trim();
+    const folder = selectedFolder;
 
     if (!apiKey || !vault) {
       showStatus('API Key と Vault 名を入力してください。', true);

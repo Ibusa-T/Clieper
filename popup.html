@@ -116,8 +116,9 @@
         <input type="text" id="vault" placeholder="MyVault">
       </div>
       <div class="field">
-        <label for="folder">Folder Path (例: Clippings)</label>
-        <input type="text" id="folder" placeholder="Clippings">
+        <label for="folder">Folder Path (フォルダを選択)</label>
+        <input type="file" id="folder" webkitdirectory directory>
+        <div id="folderDisplay" style="font-size: 11px; margin-top: 4px; color: #a855f7;"></div>
       </div>
       <button id="saveConfig" class="save-btn">設定を保存</button>
     </div>
