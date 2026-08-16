@@ -1,7 +1,7 @@
 # Clieper
 # 🚀 Obsidian Clipper - 要件定義書（MVP版）
 
-## 宣伝用LP
+##LP
 [https://clipper-llm38638.framer.website/](https://clipper-llm38638.framer.website/)
 
 ## 1. 概要 (Overview)
