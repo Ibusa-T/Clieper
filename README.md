@@ -1,6 +1,9 @@
 # Clieper
 # 🚀 Obsidian Clipper - 要件定義書（MVP版）
 
+## 宣伝用LP
+[https://clipper-llm38638.framer.website/](https://clipper-llm38638.framer.website/)
+
 ## 1. 概要 (Overview)
 * **アプリ名**: Obsidian AI Web Clipper
 * **概要**: Webページの内容をワンクリックでAI（LLM）が要約し、ObsidianのURLスキーマ（`obsidian://`）を経由して、iCloud等のObsidian保管庫へMarkdown形式で一発保存するChrome拡張機能。
@@ -8,6 +11,7 @@
 * **ターゲット**: Obsidianユーザー、情報収集の効率化を図りたいインディハッカー・エンジニア
 
 ---
+
 
 ## 2. システム構成・ディレクトリ構造 (Architecture)
 
