@@ -1,5 +1,0 @@
-## summary-text
-
-*date-2026/08/16*
-*author Ibusa-T*
-*agent-llammer*
