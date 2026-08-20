@@ -1,5 +1,5 @@
 # Clieper
-# 🚀 Obsidian Clipper - 要件定義書（MVP版）
+# 🚀 Obsidian Clipper - アプリケーション仕様（MVP版）
 
 ## 1. 概要 (Overview)
 * **アプリ名**: Obsidian AI Web Clipper
